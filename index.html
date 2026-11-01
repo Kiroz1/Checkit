@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14302A">
+  <meta name="description" content="Pendientes y compras de la despensa y la casa, sin conexión.">
+  <title>Mi lista</title>
+
+  <!-- PWA: manifest e íconos -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <header class="top">
+      <h1>Mi lista</h1>
+      <p id="resumen" class="resumen" aria-live="polite"></p>
+    </header>
+
+    <!-- Formulario para agregar -->
+    <form id="form" class="agregar" autocomplete="off">
+      <input id="texto" type="text" placeholder="¿Qué falta?" maxlength="80" required aria-label="Nuevo elemento">
+      <select id="tipo" aria-label="Tipo de elemento">
+        <option value="pendiente">Pendiente</option>
+        <option value="despensa">Despensa</option>
+        <option value="casa">Casa</option>
+        <option value="trabajo">Trabajo</option>
+      </select>
+      <button type="submit">Agregar</button>
+    </form>
+
+    <!-- Filtros -->
+    <nav id="filtros" class="filtros" aria-label="Filtrar por tipo">
+      <button type="button" data-filtro="todos" aria-pressed="true">Todo</button>
+      <button type="button" data-filtro="pendiente" aria-pressed="false">Pendientes</button>
+      <button type="button" data-filtro="despensa" aria-pressed="false">Despensa</button>
+      <button type="button" data-filtro="casa" aria-pressed="false">Casa</button>
+      <button type="button" data-filtro="trabajo" aria-pressed="false">Trabajo</button>
+    </nav>
+
+    <!-- Lista -->
+    <ul id="lista" class="lista"></ul>
+    <p id="vacio" class="vacio" hidden>Nada por aquí. Escribe arriba lo primero que quieras anotar.</p>
+
+    <button id="limpiar" class="limpiar" type="button" hidden>Borrar completados</button>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
